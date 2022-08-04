@@ -1,0 +1,9 @@
+{% load wagtailimages_tags %}
+
+
+{% if self.contact_link %}
+<div class="col-12 m-5">
+<a href="{{ self.contact_link.url }}" class="btn btn-primary" role="button">{{ self.text }}</a>
+
+</div>
+{% endif %}

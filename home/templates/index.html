@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block content %}
+
+{% for block in page.main_menu %}
+	{% include_block block %}
+{% endfor %}
+
+
+{% for block in page.menu %}
+	{% include_block block %}
+{% endfor %}
+
+{% for block in page.service %}
+	{% include_block block %}
+{% endfor %}
+
+{% for block in page.work %}
+	{% include_block block %}
+{% endfor %}
+
+{% for block in page.testimony %}
+	{% include_block block %}
+{% endfor %}
+
+{% for block in page.fact %}
+	{% include_block block %}
+{% endfor %}
+
+
+{% endblock %}

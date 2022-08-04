@@ -1,0 +1,20 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if self.jumbotron_color %}
+<div class="p-5 text-center mt-5 mb-5" style="background-color: {{ self.jumbotron_color }};">
+{% else %}
+<div class="p-5 text-center bg-light mt-5 mb-5">
+{% endif %}
+
+<div class="row">
+{% for service in self.service_index %}
+<div class="col-6 col-sm-2 mx-sm-5 mb-4">
+{% image service.image_icon original as img %}
+<img class="img-fluid" src="{{ img.url }}" alt="{{ img.alt }}">
+<h5>{{ service.title }}</h5>
+
+</div>
+{% endfor %}
+</div>			
+</div>
+</div>

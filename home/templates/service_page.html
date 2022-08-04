@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+<div class="col-12 mb-5">
+
+<h1 class="mt-5">{{ page.title|title }}</h1>
+
+{% if page.body %}
+{{ page.body|richtext|safe }}
+{% endif %}
+
+{% for block in page.service_contact %}
+	{% include_block block %}
+{% endfor %}
+
+
+{% for block in page.faq %}
+	{% include_block block %}
+{% endfor %}
+
+</div>
+</div>
+</div>
+
+{% if page.image %}
+<div class="p-5 bg-light">
+{% for block in page.image %}
+	{% include_block block %}
+{% endfor %}
+</div>
+{% endif %}
+
+
+
+{% for block in page.service_testimony %}
+	{% include_block block %}
+{% endfor %}
+
+
+{% for block in page.service_page %}
+	{% include_block block %}
+{% endfor %}
+
+
+{% for block in page.service_list %}
+	{% include_block block %}
+{% endfor %}
+
+
+{% endblock %}

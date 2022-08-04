@@ -1,0 +1,22 @@
+{% load wagtailimages_tags %}
+
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h1>{{ self.heading }}</h1>
+
+{{ self.description|richtext|safe }}
+
+{% if self.list_item %}
+<ul>
+<li class="p-5"><i class="fa fa-check">{{ self.list_item }}</i></li>
+</ul>
+{% endif %}
+
+{% image self.image original as banner %}
+<img src="{{ banner.url }}" class="figure-img img-fluid" alt="{{ banner.alt }}">
+
+</div>
+
+</div>
+</div>

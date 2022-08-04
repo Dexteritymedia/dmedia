@@ -1,0 +1,32 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if self.jumbotron_color %}
+<div class="p-5 text-center" style="background-color: {{ self.jumbotron_color }};">
+{% else %}
+<div class="p-5 text-center bg-light">
+{% endif %}
+
+{% if self.heading %}
+<h1 class="mb-3 mt-5">{{ self.heading }}</h1>
+{% endif %}
+
+{{ self.description|richtext|safe }}
+
+<div class="container">
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+
+{% for testimony in self.service_testimony %}
+<div class="col-12">
+<div class="card">
+<p class="card-text">{{ testimony.description|richtext|safe }}</p>
+<p class="card-text">{{ testimony.name }}</p>
+</div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+</div>
+</div>
+</div>

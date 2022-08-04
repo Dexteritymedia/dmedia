@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+<div class="col-12">
+
+{% image page.image fill-1200x700 as img %}
+<img class="img-fluid" src="{{ img.url }}" alt="{{ img.alt }}">
+
+<p>{{ page.intro|richtext|safe }}</p>
+</div>
+</div>
+</div>
+
+{% for block in page.service_page %}
+	{% include_block block %}
+{% endfor %}
+
+{% for block in page.service_main %}
+	{% include_block block %}
+{% endfor %}
+
+{% if page.client %}
+<div class="p-5 text-center bg-light mt-5 mb-5">
+<div class="container">
+<div class="row justify-content-center">
+<h2 class="mb-5">Our Clients</h2>
+{% for block in page.client %}
+	{% include_block block %}
+{% endfor %}
+</div>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}
+

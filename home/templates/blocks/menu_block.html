@@ -1,0 +1,13 @@
+{% load wagtailimages_tags %}
+
+
+<div class="text-center">
+{% if self.title %}
+<h1 class="mb-3 mt-5">{{ self.title }}</h1>
+{% endif %}
+
+<h4 class="mb-3 mt-3">{{ self.text|title|safe }}</h4>
+{% if self.button_page %}
+<a href="{{ self.button_page.url }}" class="btn btn-primary" role="button">{{ self.button_text }}</a>
+{% endif %}
+</div>
